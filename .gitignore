@@ -1,0 +1,28 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Django
+*.sqlite3
+staticfiles/
+
+# Environment variables
+.env
+
+# Node (mobile + dashboard)
+node_modules/
+.expo/
+dist/
+build/
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
