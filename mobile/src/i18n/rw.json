@@ -1,0 +1,19 @@
+{
+  "appName": "UZIMA",
+  "login": {
+    "usernamePlaceholder": "Izina ryawe",
+    "passwordPlaceholder": "Ijambo ry'ibanga",
+    "loginButton": "Injira",
+    "loggingIn": "Birimo gukorwa...",
+    "emptyFieldsError": "Uzuza izina n'ijambo ry'ibanga",
+    "loginFailedError": "Kwinjira byanze. Gerageza nanone."
+  },
+  "offline": {
+    "banner": "Nta interineti. Amakuru azahanahana igihe interineti izaboneka."
+  },
+  "common": {
+    "back": "Subira inyuma",
+    "home": "Ahabanza",
+    "help": "Ubufasha"
+  }
+}

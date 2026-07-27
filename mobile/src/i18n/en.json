@@ -1,0 +1,19 @@
+{
+  "appName": "UZIMA",
+  "login": {
+    "usernamePlaceholder": "Username",
+    "passwordPlaceholder": "Password",
+    "loginButton": "Log In",
+    "loggingIn": "Logging in...",
+    "emptyFieldsError": "Please enter your username and password",
+    "loginFailedError": "Login failed. Please try again."
+  },
+  "offline": {
+    "banner": "You are offline. Data will sync once connected."
+  },
+  "common": {
+    "back": "Back",
+    "home": "Home",
+    "help": "Help"
+  }
+}
