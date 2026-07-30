@@ -18,8 +18,18 @@ const LoginPage = () => {
     setError('');
     setLoading(true);
     try {
-      await login(username, password);
-      navigate('/dashboard');
+      const userData = await login(username, password);
+      const role = userData.user ? userData.user.role : userData.role;
+
+      if (role === 'DISTRICT_OFFICER') {
+        navigate('/district-report');
+      } else if (role === 'NURSE') {
+        navigate('/dashboard');
+      } else if (role === 'SYSTEM_ADMIN') {
+        navigate('/admin/create-user');
+      } else {
+        setError('This account does not have dashboard access.');
+      }
     } catch (err) {
       setError('Login failed. Please check your credentials.');
     } finally {
