@@ -49,6 +49,10 @@ const PatientRegisterScreen = ({ navigation }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.homeLink}>← Ahabanza</Text>
+      </TouchableOpacity>
+
       <Text style={styles.title}>Andika Umubyeyi</Text>
 
       {error ? <Text style={styles.error}>{error}</Text> : null}
@@ -103,6 +107,12 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     padding: 24,
     justifyContent: 'center',
+  },
+  homeLink: {
+    fontSize: 15,
+    color: '#1B4D3E',
+    fontWeight: '600',
+    marginBottom: 16,
   },
   title: {
     fontSize: 24,

@@ -44,6 +44,10 @@ const VisitLogScreen = ({ route, navigation }) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.homeLink}>← Ahabanza</Text>
+      </TouchableOpacity>
+
       <Text style={styles.title}>Andika Isura</Text>
       <Text style={styles.subtitle}>{patientName}</Text>
 
@@ -82,6 +86,12 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 24,
+  },
+  homeLink: {
+    fontSize: 15,
+    color: '#1B4D3E',
+    fontWeight: '600',
+    marginBottom: 16,
   },
   title: {
     fontSize: 24,
