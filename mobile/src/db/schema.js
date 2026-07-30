@@ -13,3 +13,16 @@ export const CREATE_PATIENTS_TABLE = `
     created_at TEXT NOT NULL
   );
 `;
+
+export const CREATE_VISIT_LOGS_TABLE = `
+  CREATE TABLE IF NOT EXISTS visit_logs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    patient_id INTEGER NOT NULL,
+    visit_date TEXT NOT NULL,
+    outcome TEXT NOT NULL,
+    danger_signs TEXT,
+    synced INTEGER NOT NULL DEFAULT 0,
+    created_at TEXT NOT NULL,
+    FOREIGN KEY (patient_id) REFERENCES patients (id)
+  );
+`;

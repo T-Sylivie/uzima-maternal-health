@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import PatientRegisterScreen from './src/screens/PatientRegisterScreen';
+import PatientListScreen from './src/screens/PatientListScreen';
+import VisitLogScreen from './src/screens/VisitLogScreen';
 import { initDatabase } from './src/db/database';
 
 
@@ -19,6 +21,8 @@ const App = () => {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="PatientRegister" component={PatientRegisterScreen} />
+        <Stack.Screen name="PatientList" component={PatientListScreen} />
+        <Stack.Screen name="VisitLog" component={VisitLogScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,8 +1,8 @@
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from accounts.permissions import IsNurse
-from .models import PatientNote
-from .serializers import PatientNoteSerializer
+from accounts.permissions import IsNurse, IsCHW
+from .models import PatientNote, VisitLog
+from .serializers import PatientNoteSerializer, VisitLogSerializer
 
 
 class PatientNoteListCreateView(generics.ListCreateAPIView):
@@ -15,3 +15,14 @@ class PatientNoteListCreateView(generics.ListCreateAPIView):
         if patient_id:
             queryset = queryset.filter(patient_id=patient_id)
         return queryset
+
+class VisitLogListCreateView(generics.ListCreateAPIView):
+    serializer_class = VisitLogSerializer
+    permission_classes = [IsAuthenticated, IsCHW]
+
+    def get_queryset(self):
+        chw_profile = self.request.user.chw_profile
+        return VisitLog.objects.filter(chw__village_cell=chw_profile.village_cell)
+
+    def perform_create(self, serializer):
+        serializer.save()

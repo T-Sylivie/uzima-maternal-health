@@ -1,5 +1,5 @@
 import { open } from '@op-engineering/op-sqlite';
-import { CREATE_PATIENTS_TABLE } from './schema';
+import { CREATE_PATIENTS_TABLE, CREATE_VISIT_LOGS_TABLE } from './schema';
 
 let dbInstance = null;
 
@@ -14,4 +14,5 @@ export const getDatabase = () => {
 export const initDatabase = async () => {
   const db = getDatabase();
   await db.execute(CREATE_PATIENTS_TABLE);
+  await db.execute(CREATE_VISIT_LOGS_TABLE);
 };

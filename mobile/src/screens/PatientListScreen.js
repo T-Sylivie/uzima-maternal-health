@@ -28,6 +28,15 @@ const PatientListScreen = ({ navigation }) => {
       <Text style={styles.detail}>{item.phone_number}</Text>
       <Text style={styles.detail}>Isura ya mbere: {item.visit_1_date}</Text>
       {item.synced === 0 && <Text style={styles.unsyncedBadge}>Ntibyoherejwe</Text>}
+
+      <TouchableOpacity
+        style={styles.logVisitButton}
+        onPress={() =>
+          navigation.navigate('VisitLog', { patientId: item.id, patientName: item.name })
+        }
+      >
+        <Text style={styles.logVisitButtonText}>Andika Isura</Text>
+      </TouchableOpacity>
     </View>
   );
 
@@ -108,6 +117,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#C62828',
     marginTop: 6,
+    fontWeight: 'bold',
+  },
+  logVisitButton: {
+    marginTop: 12,
+    backgroundColor: '#1B4D3E',
+    borderRadius: 6,
+    padding: 10,
+    alignItems: 'center',
+  },
+  logVisitButtonText: {
+    color: '#fff',
+    fontSize: 14,
     fontWeight: 'bold',
   },
   button: {
