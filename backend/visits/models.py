@@ -1,6 +1,6 @@
 from django.db import models
 from patients.models import Patient
-from accounts.models import CHWProfile
+from accounts.models import CHWProfile, NurseProfile
 
 
 class VisitLog(models.Model):
@@ -24,3 +24,12 @@ class DangerSign(models.Model):
 
     def __str__(self):
         return f'{self.sign_type} - {self.visit_log.patient.name}'
+
+class PatientNote(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='notes')
+    nurse = models.ForeignKey(NurseProfile, on_delete=models.PROTECT, related_name='notes')
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Note on {self.patient.name} by {self.nurse.user.username}'
