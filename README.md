@@ -58,10 +58,12 @@ A React (Vite) web application used by Nurses, District Officers, and System Adm
 
 | Component | URL |
 |---|---|
-| Backend API | https://uzima-backend.onrender.com |
+| Backend API (live): https://uzima-backend.onrender.com (not browsable directly)
+  - Admin panel: https://uzima-backend.onrender.com/admin/
+  - Login endpoint: https://uzima-backend.onrender.com/api/token/ (POST only, not browsable directly)
 | Web Dashboard | https://uzima-maternal-health.vercel.app |
 
-**Note:** The backend is hosted on Render's free tier, which spins down after a period of inactivity. The first request after idle time may take 30-60 seconds to respond while the server wakes up — this is expected, not an error.
+**Note:** The backend is hosted on Render's free tier, which spins down after a period of inactivity. The first request after idle time may take 30-60 seconds to respond while the server wakes up  this is expected, not an error.
 
 ### Test Accounts (on the live deployment)
 
