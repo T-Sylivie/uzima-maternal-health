@@ -1,3 +1,54 @@
+# UZIMA — Maternal Health Tracking System
+
+Offline-first maternal health tracking system for community health workers (CHWs) in rural Rwanda. Built for ALU Software Engineering coursework.
+
+## Tech Stack
+
+- **Backend:** Django REST Framework, Python 3.14.6
+- **Database:** PostgreSQL 18
+- **Mobile:** React Native 0.86 (bare CLI, not Expo), local storage via `@op-engineering/op-sqlite`
+- **Web Dashboard:** React + Vite
+- **Auth:** JWT (djangorestframework-simplejwt), 24-hour access token expiry
+
+## Project Structure
+
+uzima-maternal-health/
+├── backend/ Django REST API
+├── mobile/ React Native CHW app
+└── dashboard/ React web dashboard (Nurse, District Officer, System Admin)
+
+## Live Deployment
+
+| Component | URL | Status |
+|---|---|---|
+| Backend API | https://uzima-backend.onrender.com | Live (Render, free tier) |
+| Web Dashboard | https://uzima-maternal-health.vercel.app | Live (Vercel) |
+| Mobile App | Not deployed | Emulator broken; not tested on real device |
+
+**Note:** Render's free tier spins down after inactivity — the first request after a period of idle time may take 30-60 seconds to respond while the service wakes up.
+
+## Local Setup
+
+### Backend
+
+```bash
+cd backend
+python -m venv venv
+source venv/Scripts/activate
+pip install -r requirements.txt
+```
+
+Create `backend/.env` (see `.env.example` for template):
+
+SECRET_KEY=<generate with: python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())">
+DEBUG=True
+DB_NAME=uzima
+DB_USER=uzima_user
+DB_PASSWORD=<see personal notes>
+DB_HOST=localhost
+DB_PORT=5432
+CORS_ALLOWED_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+
 ```bash
 python manage.py migrate
 python manage.py runserver
