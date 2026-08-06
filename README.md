@@ -8,11 +8,11 @@ Rural Rwanda faces a specific, documented problem: CHWs currently track pregnant
 
 ### The Four Actors
 
-- **Community Health Worker (CHW)** — uses the mobile app, offline, to register pregnant women and log visit outcomes in the field
-- **Mother/Patient** — does not use any app directly; receives SMS reminders (planned, not yet implemented)
-- **Nurse** — uses the web dashboard to monitor patients in her catchment area, view flagged high-risk cases, and add notes
-- **District Health Officer** — uses the web dashboard to view aggregate, village-level attendance and risk summaries across the district
-- **System Administrator** — uses the web dashboard to create and manage CHW, Nurse, and District Officer accounts
+- **Community Health Worker (CHW)**: uses the mobile app, offline, to register pregnant women and log visit outcomes in the field
+- **Mother/Patient**: does not use any app directly; receives SMS reminders (planned, not yet implemented)
+- **Nurse**: uses the web dashboard to monitor patients in her catchment area, view flagged high-risk cases, and add notes
+- **District Health Officer**: uses the web dashboard to view aggregate, village-level attendance and risk summaries across the district
+- **System Administrator**: uses the web dashboard to create and manage CHW, Nurse, and District Officer accounts
 
 ---
 
@@ -22,12 +22,12 @@ Rural Rwanda faces a specific, documented problem: CHWs currently track pregnant
 
 A Django REST Framework API that is the single source of truth for all patient data. It handles:
 
-- **Authentication** — JWT-based login (24-hour access tokens), with four roles: CHW, Nurse, District Officer, System Administrator, each with strict role-based access control (RBAC)
-- **Patient registration** — a CHW registers a patient, and the system automatically calculates her four WHO-recommended ANC visit dates (weeks 12, 20, 28, 36 from her last menstrual period)
-- **Visit logging** — CHWs log each visit as attended, missed, or flagged with danger signs; danger signs automatically mark a patient as high-risk
-- **Nurse dashboard data** — a nurse can only see patients within her own health centre's catchment area
-- **District reporting** — aggregate patient counts and high-risk case counts per village, restricted to read-only, no patient-level detail, per the district officer's role
-- **Account management** — a System Administrator can create new CHW, Nurse, or District Officer accounts, each scoped to a specific village cell, catchment area, or district
+- **Authentication**  JWT-based login (24-hour access tokens), with four roles: CHW, Nurse, District Officer, System Administrator, each with strict role-based access control (RBAC)
+- **Patient registration**  a CHW registers a patient, and the system automatically calculates her four WHO-recommended ANC visit dates (weeks 12, 20, 28, 36 from her last menstrual period)
+- **Visit logging** CHWs log each visit as attended, missed, or flagged with danger signs; danger signs automatically mark a patient as high-risk
+- **Nurse dashboard data** a nurse can only see patients within her own health centre's catchment area
+- **District reporting**  aggregate patient counts and high-risk case counts per village, restricted to read-only, no patient-level detail, per the district officer's role
+- **Account management**  a System Administrator can create new CHW, Nurse, or District Officer accounts, each scoped to a specific village cell, catchment area, or district
 
 Database: PostgreSQL. Every RBAC boundary (a CHW only seeing her own village cell's patients, a Nurse only seeing her own catchment area) is enforced at the database query level, not just in the UI.
 
@@ -41,7 +41,7 @@ A React Native application built for Community Health Workers, designed to work 
 - A patient list screen with name search
 - A visit-logging screen where a CHW records whether a patient attended, missed, or showed danger signs during a home visit
 
-All patient and visit data written on the mobile app is stored locally first. Syncing this local data to the backend server (so a nurse can see it on the dashboard) is a planned feature not yet implemented — see Known Limitations below.
+All patient and visit data written on the mobile app is stored locally first. Syncing this local data to the backend server (so a nurse can see it on the dashboard) is a planned feature not yet implemented, see Known Limitations below.
 
 ### Web Dashboard (`dashboard/`)
 
@@ -74,7 +74,7 @@ A React (Vite) web application used by Nurses, District Officers, and System Adm
 | `sysadmin_test` | `testpass123` | System Administrator |
 | `chw_test` | `testpass123` | Community Health Worker (API access only, no web dashboard login) |
 
-Log in to the web dashboard at the URL above using any of the Nurse, District Officer, or System Administrator accounts — each will redirect to its own view automatically.
+Log in to the web dashboard at the URL above using any of the Nurse, District Officer, or System Administrator accounts, each will redirect to its own view automatically.
 
 ---
 
