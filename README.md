@@ -79,7 +79,7 @@ Log in to the web dashboard at the URL above using any of the Nurse, District Of
 ---
 
 ## Project Structure
-
+```
 uzima-maternal-health/
 ├── backend/ Django REST Framework API
 │ ├── manage.py
@@ -103,7 +103,7 @@ uzima-maternal-health/
 ├── pages/ Login, Nurse Dashboard, Patient Detail, District Report, Create User
 ├── components/ Sidebar, Patient Table, Filter Bar
 └── services/ API client, auth service
-
+```
 ---
 
 ## Full Local Setup Instructions
